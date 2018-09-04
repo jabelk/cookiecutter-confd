@@ -1,0 +1,30 @@
+module config {
+  namespace "http://tail-f.com/ns/example/config";
+  prefix ntc;
+
+  import tailf-common {
+    prefix tailf;
+  }
+
+  container test_action {
+      tailf:action dynamo_rest_call {
+        tailf:actionpoint "act-dynamo_rest_call";
+    /*
+        input {
+          leaf ansible_playbook {
+            type string;
+            mandatory true;
+          }
+        }
+    */
+        output {
+          leaf rest_output {
+            type string;
+            mandatory true;
+          }
+        }
+      }
+
+
+  }
+}

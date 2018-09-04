@@ -4,6 +4,19 @@
 #ansible
 *.retry
 
+#confd
+*.fxs
+confd-cdb/*
+cli-history/*
+*.log*
+ssh-keydir/*
+*.access
+*.data
+*_ns.py*
+
+#ansible
+*.retry
+
 # Compiled source #
 ###################
 *.com

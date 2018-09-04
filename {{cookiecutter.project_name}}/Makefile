@@ -36,12 +36,12 @@ PYAPP=action.py
 CONFD_FLAGS = --addloadpath $(CONFD_DIR)/etc/confd
 START_FLAGS ?=
 
-all:	config.fxs config_ns.py $(CDB_DIR) ssh-keydir
+all:	{{ yang_module }}.fxs {{ yang_module }}_ns.py $(CDB_DIR) ssh-keydir
 	@echo "Build complete"
 
 ######################################################################
 clean:	iclean
-	-rm -rf cli-history/ config_ns.py* __init__.py 2> /dev/null || true
+	-rm -rf cli-history/ {{ yang_module }}_ns.py* __init__.py 2> /dev/null || true
 
 start: stop
 	$(CONFD) -c confd.conf $(CONFD_FLAGS)

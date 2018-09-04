@@ -1,5 +1,5 @@
-module config {
-  namespace "http://tail-f.com/ns/example/config";
+module {{ yang_module }} {
+  namespace "http://tail-f.com/ns/example/{{ yang_module }}";
   prefix ntc;
 
   import tailf-common {

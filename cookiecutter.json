@@ -3,5 +3,6 @@
     "project_name": "my-awesome-confd-project",
     "project_description": "baseline ConfD Project for NTC",
     "author_name": "Jason Belk",
-    "author_email": "jason.belk@networktocode.com"
+    "author_email": "jason.belk@networktocode.com",
+    "yang_module": "test_yang"
 }

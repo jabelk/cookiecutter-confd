@@ -23,8 +23,6 @@ export PATH=$HOME/.local/bin:$PATH`
 ## First 
 ```
 ntc@ntc:githubtests$ cookiecutter /home/ntc/cookiecutter-confd
-/usr/local/lib/python2.7/dist-packages/cryptography/hazmat/primitives/constant_time.py:26: CryptographyDeprecationWarning: Support for your Python version is deprecated. The next version of cryptography will remove support. Please upgrade to a 2.7.x release that supports hmac.compare_digest as soon as possible.
-  utils.DeprecatedIn23,
 project_name [my-awesome-confd-project]:
 project_description [baseline ConfD Project for NTC]:
 author_name [Jason Belk]:
@@ -62,8 +60,6 @@ killall `pgrep -f "python ./action.py"` || true
 ###   (try 'make query' for an example)
 ### * In this window, the actions confd daemon now starts:
 python action.py
-/usr/local/lib/python2.7/dist-packages/cryptography/hazmat/primitives/constant_time.py:26: CryptographyDeprecationWarning: Support for your Python version is deprecated. The next version of cryptography will remove support. Please upgrade to a 2.7.x release that supports hmac.compare_digest as soon as possible.
-  utils.DeprecatedIn23,
 info: 05-Sep-2018::05:51:28.000 - --- Daemon myaction STARTED ---
 Hit <ENTER> to quit
 info: 05-Sep-2018::05:52:04.000 - Making REST CALL

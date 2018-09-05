@@ -4,5 +4,5 @@
     "project_description": "baseline ConfD Project for NTC",
     "author_name": "Jason Belk",
     "author_email": "jason.belk@networktocode.com",
-    "cookiecutter.yang_module": "test_yang"
+    "yang_module": "test_yang"
 }

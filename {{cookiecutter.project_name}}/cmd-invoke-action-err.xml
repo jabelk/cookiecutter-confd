@@ -9,13 +9,13 @@
 <rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="1">
   <action xmlns="http://tail-f.com/ns/netconf/actions/1.0">
     <data>
-      <{{ yang_module }} xmlns="http://tail-f.com/ns/example/{{ yang_module }}">
+      <{{ cookiecutter.yang_module }} xmlns="http://tail-f.com/ns/example/{{ cookiecutter.yang_module }}">
         <system>
           <restart>
             <mode>error2</mode>
           </restart>
         </system>
-      </{{ yang_module }}>
+      </{{ cookiecutter.yang_module }}>
     </data>
   </action>
 </rpc>

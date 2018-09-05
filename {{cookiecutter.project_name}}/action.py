@@ -12,7 +12,7 @@
 from __future__ import print_function
 
 import sys
-from {{ yang_module }}_ns import ns
+from {{ cookiecutter.yang_module }}_ns import ns
 
 from confd.dp import Action, Daemon
 from confd.maapi import Maapi

@@ -4,6 +4,7 @@ Inspired by Kevin Corbin's CookieCutter usage.
 
 A template for ConfD projects using [cookiecutter](https://github.com/audreyr/cookiecutter)
 
+## **Assumes using ConfD Premium for REST API test**
 
 # How to use this template
 

@@ -23,18 +23,18 @@ export PATH=$HOME/.local/bin:$PATH`
 
 ## First 
 ```
-ntc@ntc:githubtests$ cookiecutter /home/ntc/cookiecutter-confd
+cisco@cisco:githubtests$ cookiecutter /home/cisco/cookiecutter-confd
 project_name [my-awesome-confd-project]:
-project_description [baseline ConfD Project for NTC]:
-author_name [Jason Belk]:
-author_email [jason.belk@networktocode.com]:
+project_description [baseline ConfD Project]:
+author_name [Your Name Here]: Jason Belk
+author_email [youremail@domain.com]: jabelk@cisco.com
 yang_module [test_yang]:
-ntc@ntc:githubtests$ ls
-my-awesome-confd-project  ntc_confd_project
-ntc@ntc:githubtests$ cd ntc_confd_project/
-ntc@ntc:ntc_confd_project$ cd ..
-ntc@ntc:githubtests$ cd my-awesome-confd-project/
-ntc@ntc:my-awesome-confd-project$ ls
+cisco@cisco:githubtests$ ls
+my-awesome-confd-project  cisco_confd_project
+cisco@cisco:githubtests$ cd cisco_confd_project/
+cisco@cisco:cisco_confd_project$ cd ..
+cisco@cisco:githubtests$ cd my-awesome-confd-project/
+cisco@cisco:my-awesome-confd-project$ ls
 action.py               cmd-invoke-action-err.xml  confd.conf  Makefile            README.md
 cmd-invoke-action2.xml  cmd-invoke-action.xml      dynamo.py   Makefile.inc.basic  test_yang.yang
 ```
@@ -42,20 +42,20 @@ cmd-invoke-action2.xml  cmd-invoke-action.xml      dynamo.py   Makefile.inc.basi
 ### Now start the confd daemon
 
 ```
-ntc@ntc:my-awesome-confd-project$ make all
-/home/ntc/confd-install/bin/confdc --fail-on-warnings  -c -o test_yang.fxs  test_yang.yang
-/home/ntc/confd-install/bin/confdc  --emit-python test_yang_ns.py test_yang.fxs
+cisco@cisco:my-awesome-confd-project$ make all
+/home/cisco/confd-install/bin/confdc --fail-on-warnings  -c -o test_yang.fxs  test_yang.yang
+/home/cisco/confd-install/bin/confdc  --emit-python test_yang_ns.py test_yang.fxs
 mkdir -p ./confd-cdb
-cp /home/ntc/confd-install/var/confd/cdb/aaa_init.xml ./confd-cdb
-ln -s /home/ntc/confd-install/etc/confd/ssh ssh-keydir
+cp /home/cisco/confd-install/var/confd/cdb/aaa_init.xml ./confd-cdb
+ln -s /home/cisco/confd-install/etc/confd/ssh ssh-keydir
 Build complete
-ntc@ntc:my-awesome-confd-project$ make start
+cisco@cisco:my-awesome-confd-project$ make start
 ### Killing any confd daemon and confd agents
-/home/ntc/confd-install/bin/confd --stop || true
+/home/cisco/confd-install/bin/confd --stop || true
 connection refused (stop)
 killall `pgrep -f "python ./action.py"` || true
 6987: no process found
-/home/ntc/confd-install/bin/confd -c confd.conf --addloadpath /home/ntc/confd-install/etc/confd
+/home/cisco/confd-install/bin/confd -c confd.conf --addloadpath /home/cisco/confd-install/etc/confd
 ### * In one terminal window, run: tail -f ./confd.log
 ### * In another terminal window, run queries
 ###   (try 'make query' for an example)
@@ -74,37 +74,37 @@ assuming  `alias kickoffconfd
 alias kickoffconfd='confd_cli -C -u admin'`
 
 ```
-ntc@ntc:~$ kickoffconfd
+cisco@cisco:~$ kickoffconfd
 
-admin connected from 10.0.2.2 using ssh on ntc
-ntc# conf
+admin connected from 10.0.2.2 using ssh on cisco
+cisco# conf
 Entering configuration mode terminal
-ntc(config)# test_action dynamo_rest_call
+cisco(config)# test_action dynamo_rest_call
 Possible completions:
   <cr>
-ntc(config)# test_action dynamo_rest_call
+cisco(config)# test_action dynamo_rest_call
 rest_output Result from REST Call
 
 {
 "cisco"   : {
-    "hosts"   : [ "n9k1.ntc.com", "n9k2.ntc.com" ],
+    "hosts"   : [ "n9k1.cisco.com", "n9k2.cisco.com" ],
     "vars"    : {
         "platform"   : "nexus"
     }
 },
-"arista"  : [ "arista1.ntc.com", "arista2.ntc.com" ],
+"arista"  : [ "arista1.cisco.com", "arista2.cisco.com" ],
 "hp"     : {
-    "hosts"   : [ "hp1.ntc.com", "hp2.ntc.com", "hp3.ntc.com", "hp4.ntc.com" ],
+    "hosts"   : [ "hp1.cisco.com", "hp2.cisco.com", "hp3.cisco.com", "hp4.cisco.com" ],
     "vars"    : {
         "platform"   : "comware7"
     }
 },
-"juniper"    : [ "jnprfw.ntc.com" ],
-"apic"     : [ "aci.ntc.com" ]
+"juniper"    : [ "jnprfw.cisco.com" ],
+"apic"     : [ "aci.cisco.com" ]
 }
 
 
-ntc(config)# test_action dynamo_rest_call |
+cisco(config)# test_action dynamo_rest_call |
 Possible completions:
   append    Append output text to a file
   begin     Begin with the line that matches
@@ -118,37 +118,37 @@ Possible completions:
   nomore    Suppress pagination
   save      Save output text to a file
   until     End with the line that matches
-ntc(config)# test_action dynamo_rest_call | display xp
+cisco(config)# test_action dynamo_rest_call | display xp
                                                     ^
 % Invalid input detected at '^' marker.
-ntc(config)# test_action dynamo_rest_call | display ?
+cisco(config)# test_action dynamo_rest_call | display ?
 Possible completions:
   json   Display output as json
   xml    Display output as XML
-ntc(config)# test_action dynamo_rest_call | display xml
+cisco(config)# test_action dynamo_rest_call | display xml
 <rest_output xmlns='http://tail-f.com/ns/example/test_yang'>Result from REST Call
 
 {&#13;
 "cisco"   : {&#13;
-    "hosts"   : [ "n9k1.ntc.com", "n9k2.ntc.com" ],&#13;
+    "hosts"   : [ "n9k1.cisco.com", "n9k2.cisco.com" ],&#13;
     "vars"    : {&#13;
         "platform"   : "nexus"&#13;
     }&#13;
 },&#13;
-"arista"  : [ "arista1.ntc.com", "arista2.ntc.com" ],&#13;
+"arista"  : [ "arista1.cisco.com", "arista2.cisco.com" ],&#13;
 "hp"     : {&#13;
-    "hosts"   : [ "hp1.ntc.com", "hp2.ntc.com", "hp3.ntc.com", "hp4.ntc.com" ],&#13;
+    "hosts"   : [ "hp1.cisco.com", "hp2.cisco.com", "hp3.cisco.com", "hp4.cisco.com" ],&#13;
     "vars"    : {&#13;
         "platform"   : "comware7"&#13;
     }&#13;
 },&#13;
-"juniper"    : [ "jnprfw.ntc.com" ],&#13;
-"apic"     : [ "aci.ntc.com" ]&#13;
+"juniper"    : [ "jnprfw.cisco.com" ],&#13;
+"apic"     : [ "aci.cisco.com" ]&#13;
 }
 
 </rest_output>
 
-ntc(config)# exit
-ntc# exit
+cisco(config)# exit
+cisco# exit
 ```
 
